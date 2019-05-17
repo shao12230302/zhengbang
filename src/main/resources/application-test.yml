@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: yzfwh
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  datasource:
+    name: oracle
+    url: jdbc:oracle:thin:@10.88.3.158:1521:orcl
+    username: jxzb
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+mybatis-plus:
+  typeEnumsPackage: com.zb.byb.entity
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 9101
+zb:
+  rest:
+    enabled: true
+swagger:
+  enabled: true
+  base-package: com.zb.byb.controller
+  title: 帮养宝养户服务号
+  version: 1.0.0.SNAPSHOT
+  description: 帮养宝养户服务号API
+
+wx:
+  appId: wx33ceaedab9a6ed8f
+  appsecret: 4c83cdaed8d11e54d447a421a5923202
+  token: Hfjd334Hdsncb873KjdNf322
+
+
+eas:
+  login-url: http://10.88.3.150:6888/ormrpc/services/EASLogin
+  task-url: http://10.88.3.150:6888/ormrpc/services/WSCustWechatAppFacade
+  batch-url: http://10.88.3.150:6888/ormrpc/services/WSWSAppDataDealFacade
+  dc-name: CS0404
+  user-name: yhfwh
+  password:
